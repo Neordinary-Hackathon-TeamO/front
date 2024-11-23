@@ -6,6 +6,7 @@ export const Header = styled.div`
   padding: 6px 16px 20px 16px;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
 `;
 
 export const GoToBackButton = styled.div`

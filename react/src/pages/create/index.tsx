@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import toast from 'react-hot-toast';
-import clock from '../../assets/Clock.svg';
 import {
   Container,
   Flex,
@@ -20,8 +21,20 @@ import {
   Concept,
   ConCeptList,
 } from './style';
+import clock from '../../assets/Clock.svg';
+import Layout from '../../components/Layout/Layout';
+
+type RoomData = {
+  name: string | null;
+  type: string | null;
+  headCount: number | null;
+  startDate: Date | null;
+  endDate: Date | null;
+};
 
 const Page = () => {
+  const baseURL = import.meta.env.VITE_BASE_URL;
+
   const [roomName, setRoomName] = useState<string | null>(null);
   const [memberCount, setMemberCount] = useState<number | null>(null);
   const [concept, setConcept] = useState<string | null>(
@@ -32,6 +45,8 @@ const Page = () => {
   const [endDate, setEndDate] = useState<Date | null>(new Date());
   const [endTime, setEndTime] = useState<Date | null>(null);
   const [finishInput, setFinishInput] = useState<boolean>(false);
+
+  const navigate = useNavigate();
 
   const handleTimeChange = (selectedTime: Date | null) => {
     if (!selectedTime) {
@@ -63,23 +78,39 @@ const Page = () => {
 
   useEffect(() => {
     if (roomName && memberCount && startDate && endDate && endTime && concept) {
-      console.log('roomName ', roomName);
-      console.log('memberCount ', memberCount);
-      console.log('concept ', concept);
-      console.log('startDate ', startDate);
-      console.log('endDate ', endDate);
-      console.log('endTime ', endTime);
       setFinishInput(true);
     }
   }, [roomName, memberCount, startDate, endDate, endTime, concept]);
 
   // 제출 핸들러
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const roomData: RoomData = {
+      name: roomName,
+      type: concept,
+      headCount: memberCount,
+      startDate: startDate,
+      endDate: endDate,
+    };
+
+    console.log(roomData);
+
+    try {
+      const response = await axios.post(`${baseURL}/team/`, roomData);
+      const result = response.data;
+      console.log(result.data.id);
+
+      navigate(`/wait/${result.data.id}`);
+    } catch (error) {
+      toast.error('미션만들기에 실패했습니다.');
+      console.log(error);
+    }
   };
 
   return (
-    <Container>
+    <Layout headerTitle="친구들과의 비밀 계획" showBackButton>
+      <Container>
       <Flex>
         <Title>정보를 입력해 주세요.</Title>
         <Warning>(전체 필수)</Warning>
@@ -125,34 +156,54 @@ const Page = () => {
             >
               관계형성
             </ConCeptList>
-            <ConCeptList onClick={() => {
+            <ConCeptList
+              onClick={() => {
                 setConcept('힐링');
                 setConceptOpen(false);
-              }}>힐링</ConCeptList>
-            <ConCeptList onClick={() => {
+              }}
+            >
+              힐링
+            </ConCeptList>
+            <ConCeptList
+              onClick={() => {
                 setConcept('게임');
                 setConceptOpen(false);
-              }}>게임</ConCeptList>
-            <ConCeptList onClick={() => {
+              }}
+            >
+              게임
+            </ConCeptList>
+            <ConCeptList
+              onClick={() => {
                 setConcept('소소한 기쁨');
                 setConceptOpen(false);
-              }}>
+              }}
+            >
               소소한 기쁨
             </ConCeptList>
-            <ConCeptList onClick={() => {
+            <ConCeptList
+              onClick={() => {
                 setConcept('나눔');
                 setConceptOpen(false);
-              }}>나눔</ConCeptList>
-            <ConCeptList onClick={() => {
+              }}
+            >
+              나눔
+            </ConCeptList>
+            <ConCeptList
+              onClick={() => {
                 setConcept('추억 만들기');
                 setConceptOpen(false);
-              }}>
+              }}
+            >
               추억 만들기
             </ConCeptList>
-            <ConCeptList onClick={() => {
+            <ConCeptList
+              onClick={() => {
                 setConcept('유머');
                 setConceptOpen(false);
-              }}>유머</ConCeptList>
+              }}
+            >
+              유머
+            </ConCeptList>
           </Concept>
         )}
 
@@ -206,7 +257,8 @@ const Page = () => {
           <FormSubmitButtonNot type="submit">완료</FormSubmitButtonNot>
         )}
       </FormContainer>
-    </Container>
+      </Container>
+    </Layout>
   );
 };
 

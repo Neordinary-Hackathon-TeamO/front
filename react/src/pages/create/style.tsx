@@ -59,7 +59,7 @@ export const FormItemInput = styled.input`
   }
 `;
 
-export const FormSelect = styled.button`
+export const FormSelect = styled.div`
   width: 100%;
   border: solid 1px rgba(112, 115, 124, 0.22);
   border-radius: 12px;
