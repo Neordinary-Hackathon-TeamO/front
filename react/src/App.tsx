@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 function App() {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const sendMessageToNative = () => {
     if (window.ReactNativeWebView) {
@@ -15,7 +15,7 @@ function App() {
 
     sendMessageToNative();
 
-    navigate('/sign-in');
+    //navigate('/sign-in');
   }, []);
 
   document.addEventListener('message', sendMessageToNative);
