@@ -1,5 +1,7 @@
+import MainPage from './MainPage';
+
 const Page = () => {
-  return <>main</>;
+  return <MainPage />;
 };
 
 export default Page;
