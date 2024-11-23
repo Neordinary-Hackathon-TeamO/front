@@ -58,6 +58,11 @@ export const StyledImageContainer = styled.label`
   color: #37383c9c;
 `;
 
+export const StyledImage = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
 export const EmptyImageContentContainer = styled.div`
   display: flex;
   flex-direction: column;
