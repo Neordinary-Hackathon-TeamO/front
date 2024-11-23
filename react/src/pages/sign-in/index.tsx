@@ -15,6 +15,7 @@ import {
   StyledSubmitButton,
   Thumbnail,
 } from './style';
+import { useNavigate } from 'react-router-dom';
 
 const schema = z.object({
   email: z.string().min(1, '이메일은 필수 정보입니다'),
@@ -38,6 +39,12 @@ const Page = () => {
 
   const onSubmit: SubmitHandler<Schema> = (data) => {
     console.log(data);
+  };
+
+  const navigate = useNavigate();
+
+  const goSignUpPage = () => {
+    navigate('/sign-up');
   };
 
   return (
@@ -70,7 +77,9 @@ const Page = () => {
           <ButtonContainer>
             <StyledSubmitButton>로그인</StyledSubmitButton>
             <Divider />
-            <StyledSignUpButton type="button">회원가입</StyledSignUpButton>
+            <StyledSignUpButton type="button" onClick={goSignUpPage}>
+              회원가입
+            </StyledSignUpButton>
           </ButtonContainer>
         </FormContainer>
       </form>
