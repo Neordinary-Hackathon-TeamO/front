@@ -28,7 +28,7 @@ const Page = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<Schema>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -75,7 +75,7 @@ const Page = () => {
           </InputContainer>
 
           <ButtonContainer>
-            <StyledSubmitButton>로그인</StyledSubmitButton>
+            <StyledSubmitButton disabled={!isValid}>로그인</StyledSubmitButton>
             <Divider />
             <StyledSignUpButton type="button" onClick={goSignUpPage}>
               회원가입

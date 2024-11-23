@@ -45,6 +45,10 @@ export const StyledSubmitButton = styled.button`
   text-align: center;
   width: 100%;
   margin-top: 16px;
+  &:disabled {
+    background-color: #70737c29;
+    color: #37383c29;
+  }
 `;
 
 export const StyledImageContainer = styled.label`

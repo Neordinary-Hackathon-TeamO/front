@@ -65,6 +65,10 @@ export const StyledSubmitButton = styled.button`
   color: #ffffff;
   text-align: center;
   width: 100%;
+  &:disabled {
+    background-color: #70737c29;
+    color: #37383c29;
+  }
 `;
 
 export const Divider = styled.div`
