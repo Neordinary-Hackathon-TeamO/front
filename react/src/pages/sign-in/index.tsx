@@ -18,7 +18,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import { SignInRequestData } from '../../type/member';
-import { getMemberAPI, signInAPI } from '../../api/member';
+import { signInAPI } from '../../api/member';
 import { useAuthStore } from '../../store/authStore';
 
 const schema = z.object({
@@ -34,11 +34,13 @@ const Page = () => {
   const { setUser } = useAuthStore();
 
   const { mutate } = useMutation({
-    mutationFn: (data: SignInRequestData) => signInAPI(data),
-    onSuccess: async () => {
-      const { data } = await getMemberAPI();
-
-      console.log(data);
+    mutationFn: async (data: SignInRequestData) => {
+      const {
+        data: { token },
+      } = await signInAPI(data);
+      return token;
+    },
+    onSuccess: (data) => {
       setUser(data);
       navigate('/main');
     },

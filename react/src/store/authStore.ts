@@ -1,10 +1,6 @@
 import { create } from 'zustand';
 
 export type User = {
-  id: number;
-  memId: number;
-  nickName: string;
-  profileImage: string;
   accessToken: string;
 };
 

@@ -20,7 +20,6 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import { putGiverMissionAPI } from '../../api/mission';
-import { useAuthStore } from '../../store/authStore';
 
 const Page = () => {
   const navigate = useNavigate();
@@ -33,7 +32,8 @@ const Page = () => {
 
   const [image, setImage] = useState<File | null>(null);
 
-  const memId = useAuthStore.getState().user?.memId;
+  // getMemberAPI로 불러온 memId로 변경되어야 함
+  const memId = 1;
 
   const { mutate } = useMutation({
     mutationFn: (data: { content: string; image: File; memId: number }) =>
