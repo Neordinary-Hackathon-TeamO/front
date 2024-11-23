@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
-export const Layout = styled.div`
+export const Layout = styled.div<{ backgroundImageURL?: string }>`
   display: flex;
   flex-direction: column;
+  ${({ backgroundImageURL }) =>
+    backgroundImageURL
+      ? `background-image : url("${backgroundImageURL}");`
+      : ''}
 `;
 
 export const HeaderContainer = styled.div`

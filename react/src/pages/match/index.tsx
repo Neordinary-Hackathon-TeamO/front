@@ -10,6 +10,8 @@ import {
 } from './style';
 
 import tempImageUrl from '../../assets/match-temp.svg';
+import Layout from '../../components/Layout/Layout';
+import backgroundURL from '../../assets/match-background.png';
 
 const Page = () => {
   const params = useParams();
@@ -17,18 +19,25 @@ const Page = () => {
   console.log(params);
 
   return (
-    <Container>
-      <ManitoContainer>
-        <ManitoMe>닉네임님의 마니또 </ManitoMe>
+    <Layout
+      backgroundImageURL={backgroundURL}
+      titleColor="#FFFFFF"
+      headerTitle="매칭 결과"
+      showBackButton
+    >
+      <Container>
+        <ManitoContainer>
+          <ManitoMe>닉네임님의 마니또 </ManitoMe>
 
-        <ManitoContent src={tempImageUrl} />
+          <ManitoContent src={tempImageUrl} />
 
-        <ManitoOther>닉네임123님 </ManitoOther>
-      </ManitoContainer>
-      <ButtonContainer>
-        <MissionCheckButton>오늘 미션 확인하기</MissionCheckButton>
-      </ButtonContainer>
-    </Container>
+          <ManitoOther>닉네임123님 </ManitoOther>
+        </ManitoContainer>
+        <ButtonContainer>
+          <MissionCheckButton>오늘 미션 확인하기</MissionCheckButton>
+        </ButtonContainer>
+      </Container>
+    </Layout>
   );
 };
 
