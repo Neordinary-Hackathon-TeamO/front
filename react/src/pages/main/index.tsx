@@ -15,11 +15,12 @@ import {
   RoomListSection,
   RoomListTitle,
 } from './style';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import RoomCard from '../../components/RoomCard/RoomCard';
 
 const Page = () => {
   const [inputValue, setInputValue] = useState('');
+  const navigate = useNavigate();
 
   return (
     <Container>
@@ -52,7 +53,7 @@ const Page = () => {
 
       <RoomListSection>
         <RoomListTitle>방 리스트</RoomListTitle>
-        <RoomCardWrapper>
+        <RoomCardWrapper onClick={() => navigate('/wait/1')}>
           <RoomCard />
         </RoomCardWrapper>
       </RoomListSection>
