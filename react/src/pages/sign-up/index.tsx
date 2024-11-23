@@ -29,7 +29,7 @@ const Page = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<Schema>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -56,6 +56,8 @@ const Page = () => {
   };
 
   const imageURL = image ? URL.createObjectURL(image) : null;
+
+  const canBeSubmit = isValid && image;
 
   return (
     <Layout headerTitle="회원가입" showBackButton>
@@ -114,7 +116,9 @@ const Page = () => {
               onChange={onChangeImageURL}
             />
           </InputContainer>
-          <StyledSubmitButton>회원가입</StyledSubmitButton>
+          <StyledSubmitButton disabled={!canBeSubmit}>
+            가입완료
+          </StyledSubmitButton>
         </FormContainer>
       </form>
     </Layout>
