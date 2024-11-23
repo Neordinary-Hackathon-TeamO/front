@@ -16,15 +16,34 @@ import {
   Thumbnail,
 } from './style';
 import { useNavigate } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
+import { SignInRequestData } from '../../type/member';
+import { getMemberAPI, signInAPI } from '../../api/member';
+import { useAuthStore } from '../../store/authStore';
 
 const schema = z.object({
-  email: z.string().min(1, '이메일은 필수 정보입니다'),
+  username: z.string().min(1, '이메일은 필수 정보입니다'),
   password: z.string().min(1, '비밀번호 정보는 필수입니다'),
 });
 
 type Schema = z.infer<typeof schema>;
 
 const Page = () => {
+  const navigate = useNavigate();
+
+  const { setUser } = useAuthStore();
+
+  const { mutate } = useMutation({
+    mutationFn: (data: SignInRequestData) => signInAPI(data),
+    onSuccess: async () => {
+      const { data } = await getMemberAPI();
+
+      console.log(data);
+      setUser(data);
+      navigate('/main');
+    },
+  });
+
   const {
     register,
     handleSubmit,
@@ -32,16 +51,16 @@ const Page = () => {
   } = useForm<Schema>({
     resolver: zodResolver(schema),
     defaultValues: {
-      email: '',
+      username: '',
       password: '',
     },
   });
 
   const onSubmit: SubmitHandler<Schema> = (data) => {
-    console.log(data);
+    mutate({
+      ...data,
+    });
   };
-
-  const navigate = useNavigate();
 
   const goSignUpPage = () => {
     navigate('/sign-up');
@@ -55,11 +74,11 @@ const Page = () => {
           <InputContainer>
             <StyledLabel>아이디</StyledLabel>
             <StyledInput
-              {...register('email')}
+              {...register('username')}
               placeholder="이메일을 입력하세요"
             />
-            {errors.email && (
-              <StyledErrorMessage>{errors.email.message}</StyledErrorMessage>
+            {errors.username && (
+              <StyledErrorMessage>{errors.username.message}</StyledErrorMessage>
             )}
           </InputContainer>
 

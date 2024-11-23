@@ -4,7 +4,7 @@ import { useAuthStore } from '../store/authStore';
 const REQUEST_TIME = 25000;
 
 export const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_BASEURL,
+  baseURL: import.meta.env.VITE_BASE_URL,
   timeout: REQUEST_TIME,
 });
 
