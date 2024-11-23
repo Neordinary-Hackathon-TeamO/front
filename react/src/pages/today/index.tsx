@@ -17,8 +17,12 @@ import {
   StyledTextArea,
 } from './style';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
+import { putGiverMissionAPI } from '../../api/mission';
 
 const Page = () => {
+  const navigate = useNavigate();
   const {
     register,
     setFocus,
@@ -27,6 +31,17 @@ const Page = () => {
   } = useForm<{ content: string }>();
 
   const [image, setImage] = useState<File | null>(null);
+
+  // getMemberAPI로 불러온 memId로 변경되어야 함
+  const memId = 1;
+
+  const { mutate } = useMutation({
+    mutationFn: (data: { content: string; image: File; memId: number }) =>
+      putGiverMissionAPI(data),
+    onSuccess: () => {
+      navigate('/mission/1');
+    },
+  });
 
   const onChangeImageURL: ChangeEventHandler<HTMLInputElement> = ({
     target,
@@ -45,7 +60,15 @@ const Page = () => {
   }, [setFocus]);
 
   const onSubmit: SubmitHandler<{ content: string }> = (data) => {
-    console.log(data);
+    if (!memId || !image) {
+      return;
+    }
+
+    mutate({
+      ...data,
+      image,
+      memId,
+    });
   };
 
   const canBeSubmit = isValid && image;

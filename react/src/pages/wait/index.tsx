@@ -14,12 +14,7 @@ import {
   ShareButton,
 } from './style';
 
-interface PageProps {
-  sender: string;
-  receiver: string;
-}
-
-const Page: React.FC<PageProps> = () => {
+const Page = () => {
   return (
     <Layout headerTitle="대기방" showBackButton={true}>
       <Container>

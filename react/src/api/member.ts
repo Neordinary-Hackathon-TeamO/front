@@ -23,7 +23,7 @@ export const signUpAPI = ({
 };
 
 /**  로그인 */
-export const signInAPI = ({ username, password }: SignInRequestData) => {
+export const signInAPI = async ({ username, password }: SignInRequestData) => {
   const formData = new FormData();
 
   formData.append('username', username);
