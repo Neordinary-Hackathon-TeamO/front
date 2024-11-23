@@ -7,4 +7,8 @@ export default defineConfig({
     alias: [{ find: '@', replacement: '/src' }],
   },
   plugins: [react()],
+  server: {
+    host: "0.0.0.0",
+    port: 5173,
+  },
 });

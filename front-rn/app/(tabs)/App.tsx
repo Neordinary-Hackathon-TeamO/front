@@ -22,6 +22,18 @@ const App: React.FC = () => {
         onMessage={(event) => {
           console.log(event); 
         }}
+        onError={(syntheticEvent) => {
+          const { nativeEvent } = syntheticEvent;
+          console.error("WebView error: ", nativeEvent);
+        }}
+        onHttpError={(syntheticEvent) => {
+          const { nativeEvent } = syntheticEvent;
+          console.error(
+            "HTTP error: ",
+            `Status code: ${nativeEvent.statusCode}`,
+            `Description: ${nativeEvent.description}`
+          );
+        }}
       />
     </SafeAreaView>
   );
