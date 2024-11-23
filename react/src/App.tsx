@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 function App() {
+  const navigate = useNavigate();
+
   const sendMessageToNative = () => {
     if (window.ReactNativeWebView) {
       window.ReactNativeWebView.postMessage('Hello from React!');
@@ -12,6 +14,8 @@ function App() {
     // React-Native로 데이터 전송
 
     sendMessageToNative();
+
+    navigate('/sign-in');
   }, []);
 
   document.addEventListener('message', sendMessageToNative);
