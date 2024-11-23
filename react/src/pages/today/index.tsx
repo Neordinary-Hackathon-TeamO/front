@@ -1,11 +1,12 @@
 import {
-  Calendar,
+  CalendarWrapper,
   CompletedMissionList,
   Container,
   LetterIcon,
   MessageBox,
   MessageBoxText,
   MissionContent,
+  MissionDate,
   SenderToReceiver,
   SenderToReceiverWrapper,
 } from './style';
@@ -30,7 +31,12 @@ const Page: React.FC<PageProps> = ({ sender, receiver }) => {
         </MessageBox>
 
         <MissionContent>
-          <Calendar>12/24</Calendar>
+          <CalendarWrapper>
+            <img src="/public/icons/icon-arrow-triangle-left.svg" />
+            <MissionDate>12/24</MissionDate>
+            <img src="/public/icons/icon-arrow-triangle-right.svg" />
+          </CalendarWrapper>
+
           <CompletedMissionList>
             <CompletedMission nickname={sender} />
             <CompletedMission nickname={sender} />

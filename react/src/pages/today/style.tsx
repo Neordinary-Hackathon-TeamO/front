@@ -44,12 +44,21 @@ export const MessageBoxText = styled.p`
 
 export const MissionContent = styled.div``;
 
-export const Calendar = styled.div`
+export const CalendarWrapper = styled.div`
   display: flex;
-  padding: 20px;
   justify-content: center;
   align-items: center;
+  padding: 20px;
   gap: 32px;
+`;
+
+export const MissionDate = styled.span`
+  color: var(--Semantic-Label-Normal, var(--Label-Normal, #171719));
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: -0.24px;
 `;
 
 export const CompletedMissionList = styled.div`
