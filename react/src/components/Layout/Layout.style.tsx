@@ -5,8 +5,9 @@ export const Layout = styled.div<{ backgroundImageURL?: string }>`
   flex-direction: column;
   ${({ backgroundImageURL }) =>
     backgroundImageURL
-      ? `background-image : url("${backgroundImageURL}");`
+      ? `background-image : url("${backgroundImageURL}"); background-size: cover;`
       : ''}
+  padding-bottom: 50px;
 `;
 
 export const HeaderContainer = styled.div`
