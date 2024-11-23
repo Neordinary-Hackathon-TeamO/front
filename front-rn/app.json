@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "front-rn",
-    "slug": "front-rn",
+    "name": "santa",
+    "slug": "santa",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -9,19 +9,29 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.poozim.poohot",
+      "buildNumber": "1.0.0",
+      "supportsTablet": true,
+      "permissions": ["CAMERA", "READ_EXTERNAL_STORAGE"]
     },
     "android": {
+      "package": "com.poozim.poohot",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "permissions": ["CAMERA", "READ_EXTERNAL_STORAGE"]
     },
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
+    "permissions": [
+      "CAMERA",
+      "READ_EXTERNAL_STORAGE"
+    ],
     "plugins": [
       "expo-router",
       [
