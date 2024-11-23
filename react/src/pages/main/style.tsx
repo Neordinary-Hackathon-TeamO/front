@@ -10,8 +10,8 @@ export const CreateRoomSection = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: -16px;
-  height: 238px;
-  background-image: url('/images/background-christmas.png');
+  height: 380px;
+  background-image: url('/images/background-main.png');
   background-size: cover;
   background-position: center;
 `;
@@ -20,14 +20,14 @@ export const CreateRoomButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 16px;
-  border: 1px solid var(--Line-Normal-Normal, rgba(112, 115, 124, 0.22));
-  background: var(--Static-White, #fff);
-  padding: 20px 33px;
+  position: fixed;
   margin: 0 20px;
+  border-radius: 16px;
+  padding: 20px 33px;
   width: 100%;
   gap: 10px;
   cursor: pointer;
+  top: 270px;
 `;
 
 export const CreateRoomPlusIcon = styled.div`
