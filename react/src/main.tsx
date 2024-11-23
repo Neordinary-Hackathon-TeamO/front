@@ -1,8 +1,8 @@
 import { createRoot } from 'react-dom/client';
-import './index.css';
 import { RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { router } from './router.tsx';
+import 'the-new-css-reset/css/reset.css';
 
 const [MILLISECOND, SECOND, MINUTE] = [1000, 60, 5];
 const STALE_TIME = MILLISECOND * SECOND * MINUTE;
