@@ -23,10 +23,10 @@ export const StyledLabel = styled.label`
 
 export const StyledInput = styled.input`
   border-radius: 12px;
-  border: 1px solid #8b95a1;
+  border: 1px solid #70737c38;
   padding: 14px 16px;
   &::placeholder {
-    color: #8b95a1;
+    color: #70737c38;
   }
 `;
 
