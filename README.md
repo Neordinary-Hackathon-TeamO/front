@@ -11,6 +11,7 @@ react, javascript, zustand, react-query, styled-component, axios
 - `init`은 프로젝트 세팅 시 한정적으로 사용
 - `chore`는 프로젝트 설정 변경 시 사용
 - 브랜치명: `기능내용/숫자`
+
 | **Type** | **내용** |
 | --- | --- |
 | feat | 새로운 기능 추가 |
