@@ -41,3 +41,20 @@ export const MessageBoxText = styled.p`
   line-height: 162.5%;
   letter-spacing: 0.091px;
 `;
+
+export const MissionContent = styled.div``;
+
+export const Calendar = styled.div`
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+`;
+
+export const CompletedMissionList = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 40px;
+`;
