@@ -20,7 +20,7 @@ const App: React.FC = () => {
         source={{ uri: "http://10.100.201.111:5173/check/1" }}
         javaScriptEnabled
         onMessage={(event) => {
-          console.log(event);
+          console.log(event); 
         }}
       />
     </SafeAreaView>
