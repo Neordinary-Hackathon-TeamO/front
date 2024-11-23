@@ -13,7 +13,17 @@ const MainPage: React.FC = () => {
           </S.CreateRoomButton>
         </S.CreateRoomSection>
 
-        <S.InvitationCodeSection></S.InvitationCodeSection>
+        <S.InvitationCodeSection>
+          <S.InvitationCodeForm>
+            <S.InvitationCodeFormInputWrapper>
+              <S.InvitationCodeFormTitle>초대코드</S.InvitationCodeFormTitle>
+              <S.InvitationCodeFormInput placeholder="초대코드를 입력해주세요." />
+            </S.InvitationCodeFormInputWrapper>
+            <S.InvitationCodeSubmitButton>
+              입장하기
+            </S.InvitationCodeSubmitButton>
+          </S.InvitationCodeForm>
+        </S.InvitationCodeSection>
       </S.MainPage>
     </>
   );

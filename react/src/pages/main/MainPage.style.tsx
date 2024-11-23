@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MainPage = styled.div`
   width: 100%;
-  max-width: 23.4375rem;
+  max-width: 375px;
   margin: 0 auto;
 `;
 
@@ -10,7 +10,8 @@ export const CreateRoomSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 14.87rem;
+  margin-bottom: -16px;
+  height: 238px;
   background-image: url('/images/background-christmas.png');
   background-size: cover;
   background-position: center;
@@ -18,31 +19,102 @@ export const CreateRoomSection = styled.div`
 
 export const CreateRoomButton = styled.div`
   display: flex;
-  width: 21.0625rem;
-  padding: 1.25rem 2.0625rem;
   justify-content: center;
   align-items: center;
-  gap: 0.625rem;
-  border-radius: 1rem;
+  border-radius: 16px;
   border: 1px solid var(--Line-Normal-Normal, rgba(112, 115, 124, 0.22));
   background: var(--Static-White, #fff);
+  padding: 20px 33px;
+  margin: 0 20px;
+  width: 100%;
+  gap: 10px;
   cursor: pointer;
 `;
 
 export const CreateRoomPlusIcon = styled.div`
   display: flex;
-  height: 1.25rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 20px;
 `;
 
 export const CreateRoomText = styled.span`
   color: #4e5968;
   text-align: center;
-  font-size: 1.0625rem;
+  font-size: 17px;
   font-weight: 600;
   line-height: 141.2%;
 `;
 
-export const InvitationCodeSection = styled.div``;
+export const InvitationCodeSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 16px 16px 0 0;
+  background: #fff;
+`;
+
+export const InvitationCodeForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+export const InvitationCodeFormInputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 0;
+  width: 100%;
+`;
+
+export const InvitationCodeFormTitle = styled.h3`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 24px;
+  gap: 10px;
+`;
+
+export const InvitationCodeFormInput = styled.input.attrs(() => ({
+  type: 'text',
+}))<React.InputHTMLAttributes<HTMLInputElement>>`
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+  border-radius: 12px;
+  border: 1px solid var(--Line-Normal-Normal, rgba(112, 115, 124, 0.22));
+  background: #fff;
+  padding: 14px 16px;
+  gap: 10px;
+  position: relative;
+  line-height: 1;
+
+  &::placeholder {
+    color: rgba(55, 56, 60, 0.28);
+  }
+`;
+
+export const InvitationCodeSubmitButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px 20px;
+  border-radius: 14px;
+  background: #4e5968;
+  padding: 12px 25px;
+  color: #fff;
+  gap: 10px;
+  cursor: pointer;
+
+  &:disabled {
+    background: rgba(112, 115, 124, 0.16);
+    color: var(
+      --Semantic-Label-Disable,
+      var(--Label-Disable, rgba(55, 56, 60, 0.16))
+    );
+  }
+`;
