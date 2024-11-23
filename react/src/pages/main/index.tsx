@@ -29,7 +29,7 @@ const Page = () => {
             <img src="/public/icons/icon-plus.svg" alt="plus-icon" />
           </CreateRoomPlusIcon>
           <Link to="/create">
-            <CreateRoomText>방 만들기</CreateRoomText>
+            <CreateRoomText>친구들과의 비밀계획</CreateRoomText>
           </Link>
         </CreateRoomButton>
       </CreateRoomSection>
