@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import RoomCard from '../../components/RoomCard/RoomCard';
 import * as S from './MainPage.style';
+import { Link } from 'react-router-dom';
 
 const MainPage: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
@@ -11,7 +12,9 @@ const MainPage: React.FC = () => {
           <S.CreateRoomPlusIcon>
             <img src="/public/icons/icon-plus.svg" alt="plus-icon" />
           </S.CreateRoomPlusIcon>
-          <S.CreateRoomText>방 만들기</S.CreateRoomText>
+          <Link to="/create">
+            <S.CreateRoomText>방 만들기</S.CreateRoomText>
+          </Link>
         </S.CreateRoomButton>
       </S.CreateRoomSection>
 
