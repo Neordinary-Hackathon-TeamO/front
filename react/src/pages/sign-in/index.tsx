@@ -34,14 +34,10 @@ const Page = () => {
   const { setUser } = useAuthStore();
 
   const { mutate } = useMutation({
-    mutationFn: async (data: SignInRequestData) => {
-      const {
-        data: { token },
-      } = await signInAPI(data);
-      return token;
-    },
+    mutationFn: async (data: SignInRequestData) => signInAPI(data),
     onSuccess: (data) => {
-      setUser(data);
+      setUser(data.data.tokenKey);
+      console.log(data.data);
       navigate('/main');
     },
   });

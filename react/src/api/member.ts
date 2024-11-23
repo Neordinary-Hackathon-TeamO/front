@@ -37,7 +37,10 @@ export const signInAPI = async ({ username, password }: SignInRequestData) => {
 };
 
 /**  회원 조회 */
-export const getMemberAPI = () => axiosInstance.get('/member');
+export const getMemberAPI = () =>
+  axiosInstance.get<{
+    memId: number;
+  }>('/member');
 
 //후순위로 해도 될듯
 /**  회원삭제 */
