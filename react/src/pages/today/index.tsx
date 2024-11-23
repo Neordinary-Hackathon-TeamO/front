@@ -1,12 +1,15 @@
 import {
+  ButtonWrapper,
   CalendarWrapper,
   CompletedMissionList,
   Container,
   LetterIcon,
+  MatchButton,
   MessageBox,
   MessageBoxText,
   MissionContent,
   MissionDate,
+  MissionVerificationButton,
   SenderToReceiver,
   SenderToReceiverWrapper,
 } from './style';
@@ -42,6 +45,11 @@ const Page: React.FC<PageProps> = ({ sender, receiver }) => {
             <CompletedMission nickname={sender} />
           </CompletedMissionList>
         </MissionContent>
+
+        <ButtonWrapper>
+          <MissionVerificationButton>미션 인증하기</MissionVerificationButton>
+          <MatchButton>마니또 맞추기 (종료일에 가능해요)</MatchButton>
+        </ButtonWrapper>
       </Container>
     </Layout>
   );

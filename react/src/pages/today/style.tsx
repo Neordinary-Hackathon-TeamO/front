@@ -67,3 +67,45 @@ export const CompletedMissionList = styled.div`
   padding: 0 20px;
   gap: 40px;
 `;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 20px 32px;
+`;
+
+export const MissionVerificationButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 12px 25px;
+  gap: 10px;
+  border-radius: 14px;
+  background: #4e5968;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 141.2%;
+`;
+
+export const MatchButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 25px;
+  gap: 10px;
+  background: #4e5968;
+  border-radius: 14px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 141.2%;
+  color: #fff;
+
+  &:disabled {
+    background: rgba(112, 115, 124, 0.16);
+    color: rgba(55, 56, 60, 0.16);
+  }
+`;
