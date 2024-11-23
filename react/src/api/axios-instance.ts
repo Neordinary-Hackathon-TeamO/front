@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useAuthStore } from '../store/authStore';
 
 const REQUEST_TIME = 25000;
 
@@ -7,12 +8,12 @@ export const axiosInstance = axios.create({
   timeout: REQUEST_TIME,
 });
 
-// TODO 추후 로컬 스토리지 혹은 쿠키와 연동해서 header에 넣는 로직 필요
-const getAuthHeader = () => `bearer accesstoken`;
-
 axiosInstance.interceptors.request.use(
   (config) => {
-    config.headers['Authorization'] = getAuthHeader();
+    const accessToken = useAuthStore.getState().user?.accessToken;
+    if (useAuthStore.getState().user?.accessToken) {
+      config.headers.Authorization = accessToken;
+    }
     return config;
   },
   (error) => {
