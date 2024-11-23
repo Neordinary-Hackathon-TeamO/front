@@ -23,14 +23,28 @@ export const ImageWrapper = styled.div`
   aspect-ratio: 1/1;
 `;
 
-export const MissionText = styled.p`
+export const MissionTextWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  padding: 4px;
+`;
+
+export const MissionText = styled.p<{ isExpanded: boolean }>`
+  display: -webkit-box;
+  -webkit-line-clamp: ${(props) => (props.isExpanded ? 'unset' : 2)};
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   justify-content: center;
   align-items: center;
-  padding: 4px;
   gap: 4px;
   color: var(--Semantic-Label-Normal, var(--Label-Normal, #171719));
   font-size: 15px;
   line-height: 160%;
   letter-spacing: 0.144px;
+`;
+
+export const MoreButton = styled.button`
+  font-size: 15px;
+  color: rgba(55, 56, 60, 0.61);
 `;

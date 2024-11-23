@@ -33,6 +33,7 @@ const Page: React.FC<PageProps> = ({ sender, receiver }) => {
           <Calendar>12/24</Calendar>
           <CompletedMissionList>
             <CompletedMission nickname={sender} />
+            <CompletedMission nickname={sender} />
           </CompletedMissionList>
         </MissionContent>
       </Container>

@@ -55,6 +55,6 @@ export const Calendar = styled.div`
 export const CompletedMissionList = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 0 20px;
   gap: 40px;
 `;
