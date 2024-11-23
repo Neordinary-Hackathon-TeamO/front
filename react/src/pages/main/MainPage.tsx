@@ -1,3 +1,4 @@
+import RoomCard from '../../components/RoomCard/RoomCard';
 import * as S from './MainPage.style';
 
 const MainPage: React.FC = () => {
@@ -24,6 +25,13 @@ const MainPage: React.FC = () => {
             </S.InvitationCodeSubmitButton>
           </S.InvitationCodeForm>
         </S.InvitationCodeSection>
+
+        <S.RoomListSection>
+          <S.RoomListTitle>방 리스트</S.RoomListTitle>
+          <S.RoomCardWrapper>
+            <RoomCard />
+          </S.RoomCardWrapper>
+        </S.RoomListSection>
       </S.MainPage>
     </>
   );

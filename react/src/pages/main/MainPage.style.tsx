@@ -86,7 +86,7 @@ export const InvitationCodeFormInput = styled.input.attrs(() => ({
   align-items: center;
   margin: 0 20px;
   border-radius: 12px;
-  border: 1px solid var(--Line-Normal-Normal, rgba(112, 115, 124, 0.22));
+  border: 1px solid rgba(112, 115, 124, 0.22);
   background: #fff;
   padding: 14px 16px;
   gap: 10px;
@@ -112,9 +112,26 @@ export const InvitationCodeSubmitButton = styled.button`
 
   &:disabled {
     background: rgba(112, 115, 124, 0.16);
-    color: var(
-      --Semantic-Label-Disable,
-      var(--Label-Disable, rgba(55, 56, 60, 0.16))
-    );
+    color: rgba(55, 56, 60, 0.16);
   }
+`;
+
+export const RoomListSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0 20px;
+`;
+
+export const RoomListTitle = styled.h2`
+  color: #171719;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: -0.24px;
+`;
+export const RoomCardWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 `;
