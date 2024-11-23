@@ -16,9 +16,13 @@ import {
 import { CameraIcon } from './CameraIcon';
 import { ChangeEventHandler, useState } from 'react';
 import Layout from '../../components/Layout/Layout';
+import { SignupRequestData } from '../../type/member';
+import { useMutation } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
+import { signUpAPI } from '../../api/member';
 
 const schema = z.object({
-  email: z.string().min(1, '이메일은 필수 정보입니다'),
+  memId: z.string().min(1, '이메일은 필수 정보입니다'),
   password: z.string().min(1, '비밀번호 정보는 필수입니다'),
   nickname: z.string().min(1, '닉네임은 필수입니다'),
 });
@@ -33,7 +37,7 @@ const Page = () => {
   } = useForm<Schema>({
     resolver: zodResolver(schema),
     defaultValues: {
-      email: '',
+      memId: '',
       password: '',
       nickname: '',
     },
@@ -41,8 +45,24 @@ const Page = () => {
 
   const [image, setImage] = useState<File | null>(null);
 
+  const navigate = useNavigate();
+
+  const { mutate } = useMutation({
+    mutationFn: (data: SignupRequestData) => signUpAPI(data),
+    onSuccess: () => {
+      navigate('/sign-in');
+    },
+  });
+
   const onSubmit: SubmitHandler<Schema> = (data) => {
-    console.log(data);
+    if (!image) {
+      return;
+    }
+
+    mutate({
+      ...data,
+      profileImage: image,
+    });
   };
 
   const onChangeImageURL: ChangeEventHandler<HTMLInputElement> = ({
@@ -66,11 +86,11 @@ const Page = () => {
           <InputContainer>
             <StyledLabel>아이디</StyledLabel>
             <StyledInput
-              {...register('email')}
+              {...register('memId')}
               placeholder="이메일을 입력하세요"
             />
-            {errors.email && (
-              <StyledErrorMessage>{errors.email.message}</StyledErrorMessage>
+            {errors.memId && (
+              <StyledErrorMessage>{errors.memId.message}</StyledErrorMessage>
             )}
           </InputContainer>
 

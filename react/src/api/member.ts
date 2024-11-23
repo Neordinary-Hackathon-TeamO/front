@@ -1,10 +1,41 @@
+import { SignInRequestData, SignupRequestData } from '../type/member';
 import { axiosInstance } from './axios-instance';
 
 /**  회원가입 */
-export const signUpAPI = () => axiosInstance.post('/member');
+export const signUpAPI = ({
+  memId,
+  password,
+  profileImage,
+  nickname,
+}: SignupRequestData) => {
+  const formData = new FormData();
+
+  formData.append('memId', memId);
+  formData.append('password', password);
+  formData.append('profileImage', profileImage);
+  formData.append('nickname', nickname);
+
+  return axiosInstance.post('/member', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+};
 
 /**  로그인 */
-export const signInAPI = () => axiosInstance.post('/login');
+export const signInAPI = ({ username, password }: SignInRequestData) => {
+  const formData = new FormData();
+
+  formData.append('username', username);
+  formData.append('password', password);
+
+  return axiosInstance.post('/login', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+};
+
 /**  회원 조회 */
 export const getMemberAPI = () => axiosInstance.get('/member');
 
