@@ -25,16 +25,18 @@ const Page = () => {
       headerTitle="매칭 결과"
       showBackButton
     >
-      <ManitoContainer>
-        <ManitoMe>닉네임님의 마니또 </ManitoMe>
+      <Container>
+        <ManitoContainer>
+          <ManitoMe>닉네임님의 마니또 </ManitoMe>
 
-        <ManitoContent src={tempImageUrl} />
+          <ManitoContent src={tempImageUrl} />
 
-        <ManitoOther>닉네임123님 </ManitoOther>
-      </ManitoContainer>
-      <ButtonContainer>
-        <MissionCheckButton>오늘 미션 확인하기</MissionCheckButton>
-      </ButtonContainer>
+          <ManitoOther>닉네임123님 </ManitoOther>
+        </ManitoContainer>
+        <ButtonContainer>
+          <MissionCheckButton>오늘 미션 확인하기</MissionCheckButton>
+        </ButtonContainer>
+      </Container>
     </Layout>
   );
 };

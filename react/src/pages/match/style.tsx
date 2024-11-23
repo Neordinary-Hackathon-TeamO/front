@@ -1,10 +1,7 @@
 import styled from 'styled-components';
-import backgroundUrl from '../../assets/match-background.png';
 
 export const Container = styled.div`
-  background-image: url('${backgroundUrl}');
-  height: 100dvh;
-
+  height: calc(100dvh - 54px);
   display: flex;
   flex-direction: column;
 `;
