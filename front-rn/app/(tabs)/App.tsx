@@ -17,7 +17,7 @@ const App: React.FC = () => {
       <Button title="Send to Web" onPress={sendMessageToWeb} />
       <WebView
         ref={webviewRef}
-        source={{ uri: "http://192.168.100.149:5173/" }}
+        source={{ uri: "http://10.100.201.111:5173/check/1" }}
         javaScriptEnabled
         onMessage={(event) => {
           console.log(event);
