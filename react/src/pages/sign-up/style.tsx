@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 18px 20px;
   gap: 16px;
   align-items: center;
 `;
