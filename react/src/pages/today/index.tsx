@@ -39,7 +39,7 @@ const Page = () => {
     mutationFn: (data: { content: string; image: File; memId: number }) =>
       putGiverMissionAPI(data),
     onSuccess: () => {
-      navigate('/sign-in');
+      navigate('/mission/1');
     },
   });
 
