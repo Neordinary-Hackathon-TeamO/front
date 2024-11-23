@@ -16,5 +16,19 @@ export const putMissionCheckAPI = (missionId: string) =>
   axiosInstance.put(`/mission/execution/${missionId}`);
 
 /**미션 인증 */
-export const putGiverMissionAPI = (giverMemberId: string) =>
-  axiosInstance.put(`/mission/${giverMemberId}`);
+export const putGiverMissionAPI = ({
+  memId,
+  content,
+  image,
+}: {
+  memId: number;
+  content: string;
+  image: File;
+}) => {
+  const formData = new FormData();
+
+  formData.append('content', content);
+  formData.append('image', image);
+
+  return axiosInstance.put(`/mission/${memId}`);
+};
