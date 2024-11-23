@@ -4,9 +4,14 @@ import * as S from './Header.style';
 interface HeaderProps {
   title: string;
   showBackButton?: boolean;
+  color: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, showBackButton = false }) => {
+const Header: React.FC<HeaderProps> = ({
+  title,
+  showBackButton = false,
+  color,
+}) => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
@@ -20,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ title, showBackButton = false }) => {
           <img src="/public/icons/icon-arrow-left.svg" alt="뒤로가기" />
         </S.GoToBackButton>
       )}
-      <S.PageTitle>{title}</S.PageTitle>
+      <S.PageTitle color={color}>{title}</S.PageTitle>
     </S.Header>
   );
 };

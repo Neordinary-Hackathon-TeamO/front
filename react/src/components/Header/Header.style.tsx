@@ -14,10 +14,10 @@ export const GoToBackButton = styled.div`
   left: 16px;
 `;
 
-export const PageTitle = styled.span`
+export const PageTitle = styled.span<{ color: string }>`
   display: flex;
   justify-content: center;
-  color: #171719;
+  ${({ color }) => `color:${color};`}
   text-align: center;
   font-size: 20px;
   font-weight: 600;
